@@ -1,0 +1,807 @@
+/* =======================================================
+   RESET Y CONFIGURACIÓN BASE
+   ======================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #334155;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =======================================================
+   HEADER Y NAVEGACIÓN
+   ======================================================= */
+.site-header {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 16px 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    transition: color 0.3s ease;
+}
+
+.logo i {
+    color: #3b82f6;
+    font-size: 28px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #0f172a;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3b82f6;
+    border-radius: 2px;
+}
+
+/* =======================================================
+   BOTÓN DE TEMA CLARO/OSCURO
+   ======================================================= */
+.theme-toggle {
+    background: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #64748b;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.theme-toggle:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.theme-text {
+    font-size: 14px;
+}
+
+/* =======================================================
+   SECCIÓN DE INTRODUCCIÓN Y FILTROS
+   ======================================================= */
+.gallery-intro {
+    text-align: center;
+    padding: 60px 0 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-intro h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.gallery-intro p {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 10px 22px;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    border-radius: 50px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.filter-btn.active {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* =======================================================
+   GRILLA MASONRY PRINCIPAL (MEJORADA)
+   ======================================================= */
+.gallery-grid {
+    display: grid;
+    /* Grid responsivo: mínimo 280px, máximo flexible */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    
+    /* Filas pequeñas para control preciso del masonry */
+    grid-auto-rows: 10px;
+    
+    /* 'dense' llena automáticamente los huecos  */
+    grid-auto-flow: dense;
+    
+    gap: 24px;
+    padding-bottom: 40px;
+}
+
+/* =======================================================
+   TARJETAS (CARDS) - DISEÑO PROFESIONAL
+   ======================================================= */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    grid-row: span 26;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Figura e imagen */
+.card-figure {
+    margin: 0;
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.card:hover .card-figure img {
+    transform: scale(1.05);
+}
+
+/* Overlay para botones */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: 600;
+    color: #0f172a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.view-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Badges destacados */
+.featured-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background-color: #f59e0b;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.card-category {
+    background-color: #f1f5f9;
+    color: #475569;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.card-date {
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+    margin-top: 4px;
+    transition: color 0.3s ease;
+}
+
+.card-description {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+/* Footer de la tarjeta */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+    transition: border-color 0.3s ease;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.like-btn:hover {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.like-btn.liked {
+    color: #ef4444;
+}
+
+.like-btn.liked i {
+    font-weight: 900;
+}
+
+.share-btn {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    background-color: #eff6ff;
+}
+
+/* =======================================================
+   VARIANTES DE TAMAÑO DE TARJETAS
+   ======================================================= */
+.card-tall {
+    grid-row: span 42;
+}
+
+.card-wide {
+    grid-column: span 2;
+    grid-row: span 26;
+}
+
+.card-big {
+    grid-column: span 2;
+    grid-row: span 42;
+}
+
+/* =======================================================
+   BOTÓN PARA CARGAR MÁS CONTENIDO
+   ======================================================= */
+.load-more-container {
+    text-align: center;
+    padding: 40px 0 60px;
+}
+
+.load-more-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.load-more-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
+}
+
+.load-more-btn:active {
+    transform: translateY(-1px);
+}
+
+.load-more-btn.loading {
+    background-color: #64748b;
+    cursor: not-allowed;
+}
+
+.load-more-btn.loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* =======================================================
+   LIGHTBOX PARA IMÁGENES AMPLIADAS
+   ======================================================= */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 40px;
+}
+
+.lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-close:hover {
+    opacity: 0.8;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* =======================================================
+   FOOTER
+   ======================================================= */
+.site-footer {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    padding: 60px 0 30px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #3b82f6;
+    color: white;
+    transform: translateY(-4px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+.footer-bottom i.fa-heart {
+    color: #ef4444;
+    margin: 0 4px;
+}
+
+/* =======================================================
+   ESTILOS PARA TEMA OSCURO
+   ======================================================= */
+body.dark-theme {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+.dark-theme .site-header {
+    background-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .logo {
+    color: #f1f5f9;
+}
+
+.dark-theme .nav-links a {
+    color: #cbd5e1;
+}
+
+.dark-theme .nav-links a:hover,
+.dark-theme .nav-links a.active {
+    color: #ffffff;
+}
+
+.dark-theme .nav-links a.active::after {
+    background-color: #60a5fa;
+}
+
+.dark-theme .gallery-intro h1 {
+    color: #f1f5f9;
+}
+
+.dark-theme .gallery-intro p {
+    color: #94a3b8;
+}
+
+.dark-theme .card {
+    background-color: #1e293b;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .card:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .card-title {
+    color: #f1f5f9;
+}
+
+.dark-theme .card-description {
+    color: #94a3b8;
+}
+
+.dark-theme .card-category {
+    background-color: #334155;
+    color: #e2e8f0;
+}
+
+.dark-theme .card-date {
+    color: #94a3b8;
+}
+
+.dark-theme .card-footer {
+    border-color: #334155;
+}
+
+.dark-theme .filter-btn {
+    background-color: #334155;
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
+.dark-theme .filter-btn:hover {
+    background-color: #475569;
+    border-color: #64748b;
+}
+
+.dark-theme .filter-btn.active {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
+.dark-theme .theme-toggle {
+    background-color: #334155;
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
+.dark-theme .theme-toggle:hover {
+    background-color: #475569;
+    border-color: #60a5fa;
+    color: #ffffff;
+}
+
+.dark-theme .like-btn:hover {
+    background-color: #1f2937;
+}
+
+.dark-theme .share-btn:hover {
+    background-color: #1e293b;
+}
+
+.dark-theme .site-footer {
+    background-color: #0a0f1a;
+}
+
+/* =======================================================
+   DISEÑO RESPONSIVO
+   ======================================================= */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+    
+    .card-wide, .card-big {
+        grid-column: span 1;
+    }
+    
+    .gallery-intro h1 {
+        font-size: 36px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .theme-toggle .theme-text {
+        display: none;
+    }
+    
+    .theme-toggle {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+    
+    .gallery-intro h1 {
+        font-size: 32px;
+    }
+    
+    .gallery-intro p {
+        font-size: 16px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-intro h1 {
+        font-size: 28px;
+    }
+    
+    .category-filters {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .card-content {
+        padding: 16px;
+    }
+    
+    .load-more-btn {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+}

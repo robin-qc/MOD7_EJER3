@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Profesional | Layout Masonry</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <i class="fas fa-camera-retro"></i>
+                    <span>Galería Pro</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Galería</a></li>
+                    <li><a href="#">Colecciones</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+                
+                <!-- BOTÓN DE TEMA CLARO/OSCURO -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                    <span class="theme-text">Modo Oscuro</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="gallery-intro">
+                <h1>Galería de Imágenes Masonry</h1>
+                <p>Un diseño moderno y dinámico que presenta contenido de forma elegante y sin espacios innecesarios.</p>
+                
+                <div class="category-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="nature">Naturaleza</button>
+                    <button class="filter-btn" data-filter="urban">Urbano</button>
+                    <button class="filter-btn" data-filter="animals">Animales</button>
+                    <button class="filter-btn" data-filter="architecture">Arquitectura</button>
+                </div>
+            </section>
+
+            <section class="gallery-container">
+                <div class="gallery-grid">
+                    <!-- Tarjeta 1 - Normal -->
+                    <article class="card" data-category="nature">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/10/400/400" alt="Bosque denso con rayos de sol">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/10/800/800">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Naturaleza</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 15 Dic, 2025</span>
+                            </div>
+                            <h3 class="card-title">Bosque Sereno</h3>
+                            <p class="card-description">Una vista tranquila de un bosque denso con rayos de sol filtrándose a través del follaje.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">42</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 2 - Alta -->
+                    <article class="card card-tall" data-category="nature">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/15/400/600" alt="Cascada en la montaña">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/15/800/1200">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                            <span class="featured-badge"><i class="fas fa-star"></i> Destacado</span>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Aventura</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 10 Dic, 2025</span>
+                            </div>
+                            <h3 class="card-title">Cascada Majestuosa</h3>
+                            <p class="card-description">Explorando las cascadas más altas en un paisaje montañoso impresionante. Una experiencia que conecta con la naturaleza en su estado más puro.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">128</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 3 - Ancha -->
+                    <article class="card card-wide" data-category="urban">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/28/600/400" alt="Paisaje urbano al atardecer">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/28/1200/800">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Urbano</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 8 Dic, 2025</span>
+                            </div>
+                            <h3 class="card-title">Horizonte Urbano</h3>
+                            <p class="card-description">Un paisaje amplio de la ciudad al atardecer, mostrando la arquitectura moderna contra un cielo vibrante. Perfecto para probar el diseño de grid.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">89</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 4 - Normal -->
+                    <article class="card" data-category="animals">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/40/400/400" alt="Gato curioso observando">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/40/800/800">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Animales</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 5 Dic, 2025</span>
+                            </div>
+                            <h3 class="card-title">Mirada Curiosa</h3>
+                            <p class="card-description">Un gato curioso observando desde una ventana, capturando la esencia de la curiosidad felina.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">56</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 5 - Grande (Ancha y Alta) -->
+                    <article class="card card-big" data-category="urban">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/56/800/800" alt="Ciudad nocturna iluminada">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/56/1600/1600">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                            <span class="featured-badge"><i class="fas fa-fire"></i> Popular</span>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Urbanismo</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 1 Dic, 2025</span>
+                            </div>
+                            <h3 class="card-title">Vida Nocturna</h3>
+                            <p class="card-description">La ciudad nunca duerme. Un vistazo a la energía vibrante de la metrópolis durante la noche, con luces que pintan el horizonte.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">210</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 6 - Alta -->
+                    <article class="card card-tall" data-category="architecture">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/88/400/600" alt="Edificio moderno con diseño arquitectónico">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/88/800/1200">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Arquitectura</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 28 Nov, 2025</span>
+                            </div>
+                            <h3 class="card-title">Diseño Moderno</h3>
+                            <p class="card-description">Estructuras complejas y contemporáneas que desafían la gravedad y redefinen el paisaje urbano.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">73</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 7 - Normal -->
+                    <article class="card" data-category="nature">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/101/400/400" alt="Montañas cubiertas de nieve">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/101/800/800">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Naturaleza</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 25 Nov, 2025</span>
+                            </div>
+                            <h3 class="card-title">Cumbres Nevadas</h3>
+                            <p class="card-description">Paisajes montañosos majestuosos con picos cubiertos de nieve bajo un cielo despejado.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">45</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 8 - Ancha -->
+                    <article class="card card-wide" data-category="animals">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/1074/600/400" alt="León en la sabana">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/1074/1200/800">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Animales</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 20 Nov, 2025</span>
+                            </div>
+                            <h3 class="card-title">Rey de la Sabana</h3>
+                            <p class="card-description">Un majestuoso león observando su territorio en las amplias llanuras africanas al atardecer.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">167</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 9 - Normal -->
+                    <article class="card" data-category="architecture">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/112/400/400" alt="Puente moderno">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/112/800/800">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Arquitectura</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 18 Nov, 2025</span>
+                            </div>
+                            <h3 class="card-title">Ingeniería Moderna</h3>
+                            <p class="card-description">Un puente que combina funcionalidad y diseño estético en perfecta armonía.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">91</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 10 - Alta -->
+                    <article class="card card-tall" data-category="urban">
+                        <figure class="card-figure">
+                            <img src="https://picsum.photos/id/137/400/600" alt="Rascacielos">
+                            <div class="card-overlay">
+                                <button class="view-btn" data-image="https://picsum.photos/id/137/800/1200">
+                                    <i class="fas fa-expand"></i> Ampliar
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-category">Urbano</span>
+                                <span class="card-date"><i class="far fa-calendar"></i> 15 Nov, 2025</span>
+                            </div>
+                            <h3 class="card-title">Rascacielos</h3>
+                            <p class="card-description">Imponentes estructuras que tocan el cielo y definen el perfil de las ciudades modernas.</p>
+                            <div class="card-footer">
+                                <button class="like-btn">
+                                    <i class="far fa-heart"></i> <span class="like-count">112</span>
+                                </button>
+                                <a href="#" class="share-btn">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Botón para cargar más contenido -->
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-sync-alt"></i> Cargar Más Imágenes
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Lightbox para imágenes ampliadas -->
+    <div class="lightbox" id="imageLightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Galería Pro</h3>
+                    <p>Presentando los diseños más modernos y profesionales utilizando técnicas CSS avanzadas.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Galería</a></li>
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> info@galeriapro.com</p>
+                    <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Galería Pro. Todos los derechos reservados. | Diseñado con <i class="fas fa-heart"></i> y CSS Grid</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
